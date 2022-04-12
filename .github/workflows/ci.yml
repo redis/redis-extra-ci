@@ -5,7 +5,7 @@ on:
 
 jobs:
   test-runner:
-    runs-on: [self-hosted, linux, arm64]
+    runs-on: [self-hosted, Linux, ARM64]
     steps:
     - name: Print some info
       run: |
