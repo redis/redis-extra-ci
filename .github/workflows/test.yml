@@ -79,14 +79,15 @@ jobs:
         make BUILD_TLS=yes REDIS_CFLAGS='-Werror'
     - name: testprep
       run: |
-        sudo yum install -y tcl8.6 tclx tcl-tls
+        sudo amazon-linux-extas install epel
+        sudo yum install -y tcl8.6 tclx tcltls
         ./utils/gen-test-certs.sh
     - name: test
       run: |
-        ./runtest --accurate --verbose --dump-logs --tls --dump-logs ${{github.event.inputs.test_args}}
+        ./runtest --accurate --verbose --tls --dump-logs ${{github.event.inputs.test_args}}
     - name: module api test
       run: |
-        ./runtest-moduleapi --verbose --dump-logs --tls --dump-logs ${{github.event.inputs.test_args}}
+        ./runtest-moduleapi --verbose --tls --dump-logs ${{github.event.inputs.test_args}}
     - name: sentinel tests
       run: |
         ./runtest-sentinel --tls ${{github.event.inputs.cluster_test_args}}
