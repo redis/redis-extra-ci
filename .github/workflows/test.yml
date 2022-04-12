@@ -79,7 +79,7 @@ jobs:
         make BUILD_TLS=yes REDIS_CFLAGS='-Werror'
     - name: testprep
       run: |
-        sudo amazon-linux-extas install epel
+        sudo amazon-linux-extras install -y epel
         sudo yum install -y tcl8.6 tclx tcltls
         ./utils/gen-test-certs.sh
     - name: test
