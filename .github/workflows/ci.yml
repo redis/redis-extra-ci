@@ -1,0 +1,13 @@
+name: CI
+
+on:
+  push:
+
+jobs:
+  test-runner:
+  runs-on: [self-hosted, linux, arm64]
+  steps:
+  - name: Print some info
+    run: |
+      ps -ef
+      uname -a
