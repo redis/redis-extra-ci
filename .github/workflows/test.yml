@@ -11,7 +11,8 @@ jobs:
     steps:
     - uses: actions/checkout@v3
       with:
-        repository: redis/redis
+        repository: yossigo/redis
+        ref: fix-arm64-compiler-error
     - name: build tools
       run: sudo yum groupinstall -y "Development Tools"
     - name: make
