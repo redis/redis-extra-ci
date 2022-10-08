@@ -48,7 +48,7 @@ jobs:
     - name: prepare environment
       run: sudo yum groupinstall -y "Development Tools"
     - name: make
-      run: make REDIS_CFLAGS='-Werror -DREDIS_TEST'
+      run: make MALLOC=jemalloc REDIS_CFLAGS='-Werror -DREDIS_TEST'
     - name: testprep
       run: sudo yum install -y tcl8.6 tclx
     - name: test
@@ -120,7 +120,7 @@ jobs:
       run: sudo yum groupinstall -y "Development Tools" && sudo yum install -y openssl-devel
     - name: make
       run: |
-        make BUILD_TLS=yes REDIS_CFLAGS='-Werror'
+        make MALLOC=jemalloc BUILD_TLS=yes REDIS_CFLAGS='-Werror'
     - name: testprep
       run: |
         sudo amazon-linux-extras install -y epel
