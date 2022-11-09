@@ -123,7 +123,7 @@ jobs:
         make BUILD_TLS=yes REDIS_CFLAGS='-Werror'
     - name: testprep
       run: |
-        sudo apt-get install -y install tcl8.6 tclx tcl-tls
+        sudo apt-get install -y tcl8.6 tclx tcl-tls
         ./utils/gen-test-certs.sh
     - name: test
       if: true && !contains(github.event.inputs.skiptests, 'redis')
